@@ -12,7 +12,7 @@ import { errorHandler, notFound } from "./middlewares/error";
 
 const app = express();
 app.use(helmet());
-app.use(cors({ origin: env.clientUrl }));
+app.use(cors({ origin: true, credentials: true }));
 app.use(express.json({ limit: "10kb" }));
 
 app.get("/health", (_req, res) => res.json({ success: true, status: "ok" }));
